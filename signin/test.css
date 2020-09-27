@@ -1,0 +1,12 @@
+body
+{
+    background-color: rgba(0, 215, 253, 0.692);
+}
+#login
+{
+    color: ivory;
+    background-color: rgb(243, 22, 22);
+    border: 5px double;
+    width: 25%;
+    height: 25%;
+}

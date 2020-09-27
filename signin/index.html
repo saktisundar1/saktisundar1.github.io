@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Sign In
+        </title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <link href="test.css" rel="stylesheet" type="text/css"> 
+        <script src="signin.js"></script> 
+        <script src="index.js"></script>
+        <br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/>
+    <div id="post">
+        <center><form id="login">
+            <table>
+            <tr>
+                <th>Signin Form </th>
+                <td><br/><br/></td>
+            </tr>
+            <tr> 
+                <th>User Name:</th>
+                <td><input type="text" name="te" id="te1" required placeholder="kitty cat"></td>
+            </tr>
+            <tr>
+                <th>Password:</th>
+                <td><input type="password" name="pas" id="pas1" required></td>
+            </tr>
+            <tr>
+                <td>
+                    <button><a href="https://cranky-nightingale-6e573f.netlify.app/hhh/hhh" height="60px" width="50px">Submit</a></button>
+                    <script>
+                        
+                        var posts = []
+                          axios.get('http://localhost:5000/connect')
+                          .then(function (response) {
+                            document.getElementById("post").innerHTML = response.data
+                          })
+                      </script>                      
+                </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+    </body>
+</html>
