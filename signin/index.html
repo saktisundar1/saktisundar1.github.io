@@ -5,14 +5,16 @@
             Sign In
         </title>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=qAm4o8qPm5SyWf3nqdRj9gUbt4PFZMqMWs1e-pX3ANjjCEppY1MWLhiAI4OGGrP20_zN8xjJTi1gSx-0X-XR8Q" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jcmFua3ktbmlnaHRpbmdhbGUtNmU1NzNmLm5ldGxpZnkuYXBwLw"/><script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <link href="test.css" rel="stylesheet" type="text/css"> 
-        <script src="signin.js"></script> 
         <script src="index.js"></script>
         <br/><br/><br/><br/><br/><br/><br/>
         <br/><br/><br/><br/>
-    <div id="post">
+
+        <div id="post">
+    
         <center><form id="login">
             <table>
             <tr>
@@ -20,7 +22,7 @@
                 <td><br/><br/></td>
             </tr>
             <tr> 
-                <th>User Name:</th>
+                <th>Name:</th>
                 <td><input type="text" name="te" id="te1" required placeholder="kitty cat"></td>
             </tr>
             <tr>
@@ -30,18 +32,19 @@
             <tr>
                 <td>
                     <button><a href="https://cranky-nightingale-6e573f.netlify.app/hhh/hhh" height="60px" width="50px">Submit</a></button>
-                    <script>
-                        
-                        var posts = []
-                          axios.get('http://localhost:5000/connect')
-                          .then(function (response) {
-                            document.getElementById("post").innerHTML = response.data
-                          })
-                      </script>                      
+                                    
                 </td>
             </tr>
             </table>
         </form>
     </div>
+
+    <script>
+        var posts = []
+          axios.get('http://localhost:5000/users')
+          .then(function (res) {
+            document.getElementById("post").innerHTML = yeee
+          })
+      </script>
     </body>
 </html>

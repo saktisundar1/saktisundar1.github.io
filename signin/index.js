@@ -1,18 +1,44 @@
-var express = require('express')
-var app = express()
-var connectToDB = require("./db");
-const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: false })) //middleware
-// parse application/json
-app.use(bodyParser.json())
-connectToDB()
+const express = require("express")
+const router = express.Router()
+var users = require('./db')
+var User = require("./index.html")
 
-app.get('/connect', function(req, res) {
-    res.send("OMG My route is also working")
+router.post('/', function (req, res) {
+    var data = req.body;
+
+    var newUser = new User()
+    newUser.Name = data.Name
+    newUser.Password = data.Password
+
+    newUser.save()
+    .then(function(sucres){
+        res.status(200).send(newUser)
+    })
+    .catch(function(err){
+        const e = { message : 'User cannot be saved' , error : err}
+        res.status(400).send(e)
+    })
+})
+//GET POST PUT PATCH DELETE
+router.get('/', function (req, res) {
+    User.find()
+    .then(function(users){
+        res.status(200).send(users)
+    })
+    .catch(function(err){
+        res.status(400).send('No user with the given name')
+    })  
 })
 
- //it connects to our db
-
-app.listen(5000, function () {
-    console.log("OMG!! My Server is Running !!!")
+router.get('/:id', function (req, res) {
+    var id = req.params.id
+    User.findById(id)
+    .then(function(user){
+        res.status(200).send(user)
+    })
+    .catch(function(err){
+        res.status(400).send('Not able to fetch the user')
+    })
 })
+
+module.exports = router
